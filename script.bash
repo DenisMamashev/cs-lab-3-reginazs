@@ -11,21 +11,24 @@ fi
 
 echo "$parameter"
 
-files=0
-dirs=0
+files_count=0
+dirs_count=0
 
 
 
 
 search() {
-    local dir=$1
+    local dirf=$1
 	local parent=$2
 	
-	local list=($dir/*)
+	local list=($dirf/*)
 	
 	local len_list="${#list[@]}"
 	
-        for each in "${!list[@]}"
+
+	
+	
+	for each in "${!list[@]}"
 	do
 		
 		local parent_add=$'\u2502\u00A0\u00A0\u0020'
@@ -42,23 +45,20 @@ search() {
 		
 		echo "$parent$child$name"
 		
-		if [ -d "$dir/$name" ]
+		if [ -d "$dirf/$name" ]
 		then 
-			dirs=$((dirs+1))
-			search "$dir/$name" "$parent$parent_add"
+			dirs_count=$((dirs_count+1))
+			search "$dirf/$name" "$parent$parent_add"
 		else
-			files=$((files+1))
+			files_count=$((files_count+1))
 		fi
 	done
 }
-search "${dir}" 
+search "${dir}" ""
 echo
-f="file"
-ff="files"
-d="directory"
-dd="directories"
-te=$dd
-xt=$ff
-
-echo "$dirs $te, $files $xt"
+f="files"
+d="directories"
+te=$d
+xt=$f
+echo "$dirs_count $te, $files_count $xt"
 
