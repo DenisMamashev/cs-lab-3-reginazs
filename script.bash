@@ -56,9 +56,19 @@ search() {
 }
 search "${dir}" ""
 echo
-f="files"
-d="directories"
-te=$d
-xt=$f
+f="file"
+ff="files"
+d="directory"
+dd="directories"
+
+if [[ $dirs_count -eq 1 ]]
+then te=$d
+else te=$dd
+fi
+if [[ $files_count -eq 1 ]]
+then xt=$f
+else xt=$ff
+fi
 echo "$dirs_count $te, $files_count $xt"
+
 
