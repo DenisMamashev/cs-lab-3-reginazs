@@ -1,6 +1,6 @@
 #!/bin/bash
 export LANG=en_US.UTF-8
-if [ "$1" = "" ]
+if ["$1" = ""]
   then
   dir=$PWD
   parameter="." 
