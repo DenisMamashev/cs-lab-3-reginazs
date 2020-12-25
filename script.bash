@@ -62,13 +62,13 @@ d="directory"
 dd="directories"
 
 if [[ $dirs_count -eq 1 ]]
-then te=$d
-else te=$dd
+then t=$d
+else t=$dd
 fi
 if [[ $files_count -eq 1 ]]
-then xt=$f
-else xt=$ff
+then x=$f
+else x=$ff
 fi
-echo "$dirs_count $te, $files_count $xt"
+echo "$dirs_count $t, $files_count $x"
 
 
